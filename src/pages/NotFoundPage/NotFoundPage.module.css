@@ -1,0 +1,15 @@
+.notFoundContainer {
+  text-align: center;
+  padding: 50px;
+}
+
+.notFoundMessage {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.homeLink {
+  font-size: 24px;
+  color: #1e90ff;
+  text-decoration: none;
+}

@@ -1,0 +1,17 @@
+.castContainer {
+  padding: 20px;
+}
+
+.castContainer h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.castContainer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.castContainer li {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,23 @@
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.movieItem {
+  flex-basis: calc(33.33% - 20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.movieImage {
+  width: 100%;
+  height: auto;
+}
+
+.movieTitle {
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
+}

@@ -1,0 +1,33 @@
+.movieDetails {
+  padding: 20px;
+}
+
+.movieContainer {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.movieImage {
+  width: 300px;
+  border-radius: 8px;
+}
+
+.movieInfo {
+  max-width: 600px;
+}
+
+.movieInfo h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.additionalInfo {
+  margin-top: 20px;
+}
+
+.link {
+  margin-right: 10px;
+  color: #1e90ff;
+  text-decoration: none;
+}

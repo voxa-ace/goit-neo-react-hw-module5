@@ -1,0 +1,20 @@
+.movieSearchContainer {
+  padding: 20px;
+}
+
+.searchForm {
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.searchButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
