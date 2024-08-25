@@ -29,11 +29,8 @@ const MovieDetailsPage = () => {
   }, [movieId]);
 
   const handleGoBack = () => {
-    if (location.state?.from) {
-      navigate(location.state.from);
-    } else {
-      navigate('/movies');
-    }
+    // Перенаправляє на головну сторінку
+    navigate('/');
   };
 
   return (

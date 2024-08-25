@@ -13,7 +13,7 @@ const MovieReviews = () => {
           `https://api.themoviedb.org/3/movie/${movieId}/reviews`,
           {
             headers: {
-              Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_KEY}`,
+              Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_TOKEN}`, // Змінено на правильний токен
             },
           }
         );
