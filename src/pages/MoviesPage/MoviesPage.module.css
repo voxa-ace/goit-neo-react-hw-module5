@@ -1,8 +1,6 @@
-.movieSearchContainer {
-  padding: 20px;
-}
-
 .searchForm {
+  display: flex;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
@@ -10,11 +8,47 @@
   width: 300px;
   padding: 10px;
   font-size: 16px;
-  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .searchButton {
   padding: 10px 20px;
   font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #1e90ff;
+  color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.searchButton:hover {
+  background-color: #0056b3;
+}
+
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.movieItem {
+  flex-basis: calc(33.33% - 20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.movieImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.movieTitle {
+  padding: 10px;
+  font-size: 18px;
+  background-color: #fff;
 }

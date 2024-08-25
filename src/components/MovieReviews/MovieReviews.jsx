@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import styles from './MovieReviews.module.css';
 
 const MovieReviews = () => {
   const { movieId } = useParams();
@@ -13,7 +14,7 @@ const MovieReviews = () => {
           `https://api.themoviedb.org/3/movie/${movieId}/reviews`,
           {
             headers: {
-              Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_TOKEN}`, // Змінено на правильний токен
+              Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_TOKEN}`,
             },
           }
         );
@@ -27,14 +28,14 @@ const MovieReviews = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <div className={styles.reviewsContainer}>
       <h3>Reviews</h3>
       <ul>
         {reviews.length > 0 ? (
           reviews.map(review => (
-            <li key={review.id}>
-              <p><strong>{review.author}</strong></p>
-              <p>{review.content}</p>
+            <li key={review.id} className={styles.reviewItem}>
+              <p className={styles.reviewAuthor}><strong>{review.author}</strong></p>
+              <p className={styles.reviewContent}>{review.content}</p>
             </li>
           ))
         ) : (

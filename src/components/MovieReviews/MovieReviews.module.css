@@ -1,23 +1,17 @@
 .reviewsContainer {
-  padding: 20px;
+  margin-top: 20px;
 }
 
-.reviewsContainer h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.reviewsContainer ul {
-  list-style: none;
-  padding: 0;
-}
-
-.reviewsContainer li {
-  margin-bottom: 15px;
+.reviewItem {
+  margin-bottom: 20px;
   padding: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
 }
 
-.reviewsContainer p {
-  margin: 5px 0;
+.reviewAuthor {
+  font-weight: bold;
+}
+
+.reviewContent {
+  margin-top: 5px;
 }

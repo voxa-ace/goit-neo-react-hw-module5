@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MovieList from '../../components/MovieList/MovieList';
-import { searchMovies } from '../../api/tmdb'; // Імпортуємо функцію
+import styles from './MoviesPage.module.css'; // Імпортуємо модульні стилі
+import { searchMovies } from '../../api/tmdb';
 
 const MoviesPage = () => {
   const [movies, setMovies] = useState([]);
@@ -33,13 +34,14 @@ const MoviesPage = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.searchForm} onSubmit={handleSubmit}>
         <input
           type="text"
           value={query}
           onChange={handleInputChange}
+          className={styles.searchInput}
         />
-        <button type="submit">
+        <button type="submit" className={styles.searchButton}>
           Search
         </button>
       </form>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { Link, Route, Routes, useParams, useLocation, useNavigate } from 'react-router-dom';
-import { getMovieDetails, getMovieCast, getMovieReviews } from '../../api/tmdb'; // Імпортуємо функції
+import { getMovieDetails } from '../../api/tmdb';
+import styles from './MovieDetailsPage.module.css';
 
 const MovieCast = lazy(() => import('../../components/MovieCast/MovieCast'));
 const MovieReviews = lazy(() => import('../../components/MovieReviews/MovieReviews'));
@@ -29,39 +30,39 @@ const MovieDetailsPage = () => {
   }, [movieId]);
 
   const handleGoBack = () => {
-    // Перенаправляє на головну сторінку
     navigate('/');
   };
 
   return (
     <div>
-      <button onClick={handleGoBack}>Go back</button>
+      <button className={styles.goBackButton} onClick={handleGoBack}>Go back</button>
       {movie && (
         <>
-          <div>
+          <div className={styles.movieDetailsContainer}>
             {movie.poster_path && (
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
+                className={styles.moviePoster}
               />
             )}
-            <div>
-              <h2>{movie.title}</h2>
+            <div className={styles.movieInfo}>
+              <h2 className={styles.movieTitle}>{movie.title}</h2>
               <p>User Score: {movie.vote_average}</p>
               <h3>Overview</h3>
-              <p>{movie.overview}</p>
+              <p className={styles.movieOverview}>{movie.overview}</p>
               <h3>Genres</h3>
               <p>{movie.genres.map(genre => genre.name).join(', ')}</p>
             </div>
           </div>
-          <div>
+          <div className={styles.additionalInfo}>
             <h3>Additional Information</h3>
             <ul>
               <li>
-                <Link to="cast" state={location.state}>Cast</Link>
+                <Link className={styles.link} to="cast" state={location.state}>Cast</Link>
               </li>
               <li>
-                <Link to="reviews" state={location.state}>Reviews</Link>
+                <Link className={styles.link} to="reviews" state={location.state}>Reviews</Link>
               </li>
             </ul>
           </div>

@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center; /* Center the movie list horizontally */
 }
 
 .movieItem {
@@ -9,6 +10,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;
+  position: relative; /* For overlay effects */
 }
 
 .movieImage {
@@ -20,4 +22,11 @@
   padding: 10px;
   font-size: 18px;
   text-align: center;
+  color: #fff; /* White text for better contrast on the image */
+  position: absolute; /* Overlay on the image */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  padding: 10px;
 }

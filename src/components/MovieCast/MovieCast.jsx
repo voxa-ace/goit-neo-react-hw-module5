@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import styles from './MovieCast.module.css';
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -13,7 +14,7 @@ const MovieCast = () => {
           `https://api.themoviedb.org/3/movie/${movieId}/credits`,
           {
             headers: {
-              Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_TOKEN}`, // Змінено на правильний токен
+              Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_TOKEN}`,
             },
           }
         );
@@ -29,20 +30,23 @@ const MovieCast = () => {
   return (
     <div>
       <h3>Cast</h3>
-      <ul>
+      <div className={styles.castContainer}>
         {cast.map(actor => (
-          <li key={actor.id}>
+          <div key={actor.id} className={styles.castItem}>
             {actor.profile_path && (
               <img
                 src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
                 alt={actor.name}
+                className={styles.castImage}
               />
             )}
-            <p>{actor.name}</p>
-            <p>Character: {actor.character}</p>
-          </li>
+            <div>
+              <p className={styles.castName}>{actor.name}</p>
+              <p className={styles.castCharacter}>Character: {actor.character}</p>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

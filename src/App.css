@@ -1,8 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  text-align: center;
-  overflow: hidden;
+  padding: 0 1rem; /* Додайте відступи по боках */
 }
 
 .header {
@@ -19,10 +18,3 @@
   font-size: 2rem; 
   font-weight: 700;
 }
-
-.appContainer {
-  /* padding: 1rem;  */
-  max-width: 1200px;
-  margin: 0 auto;
-}
-

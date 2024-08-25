@@ -1,17 +1,28 @@
 .castContainer {
-  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.castContainer h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.castItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.castContainer ul {
-  list-style: none;
-  padding: 0;
+.castImage {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.castContainer li {
-  margin-bottom: 10px;
+.castName {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.castCharacter {
+  font-size: 14px;
+  color: #666;
 }
