@@ -1,28 +1,32 @@
 .castContainer {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  margin-top: 20px;
 }
 
 .castItem {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 10px;
 }
 
 .castImage {
   width: 100px;
-  height: auto;
-  border-radius: 50%;
+  height: 150px; /* Можна налаштувати висоту залежно від потреб */
+  border-radius: 6px; /* Менше закруглення */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .castName {
   font-size: 16px;
   font-weight: bold;
+  text-align: center;
 }
 
 .castCharacter {
   font-size: 14px;
   color: #666;
+  text-align: center;
 }

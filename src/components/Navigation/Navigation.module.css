@@ -6,19 +6,39 @@
 }
 
 .navLink {
-  color: white;
+  color: #1e90ff; /* Синій колір для посилань */
   text-decoration: none;
   font-size: 18px;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.3s, color 0.3s;
+  border: 1px solid transparent;
 }
 
 .navLink:hover {
-  background-color: #555;
+  background-color: #1e90ff;
+  color: #fff;
+  border: 1px solid #1e90ff;
 }
 
 .activeLink {
   background-color: #1e90ff;
   color: #fff;
+  border: 1px solid #1e90ff;
+}
+
+.goBackButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333; /* Темний фон для кнопки "Go Back" */
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.goBackButton:hover {
+  background-color: #555;
 }
