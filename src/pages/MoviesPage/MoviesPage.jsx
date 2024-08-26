@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MovieList from '../../components/MovieList/MovieList';
-import styles from './MoviesPage.module.css'; // Імпортуємо модульні стилі
+import styles from './MoviesPage.module.css'; 
 import { searchMovies } from '../../api/tmdb';
 
 const MoviesPage = () => {

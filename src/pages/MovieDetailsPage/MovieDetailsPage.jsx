@@ -30,10 +30,8 @@ const MovieDetailsPage = () => {
   }, [movieId]);
 
   const handleGoBack = () => {
-    // Check if there's a state object with a 'from' property
     const previousLocation = location.state?.from;
 
-    // If `previousLocation` exists, navigate to it; otherwise, navigate to `/movies`
     if (previousLocation) {
       navigate(previousLocation);
     } else {
