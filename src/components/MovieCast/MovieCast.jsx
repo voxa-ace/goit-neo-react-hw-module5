@@ -1,30 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { getMovieCast, getTmdbConfig } from '../../api/tmdb'; 
 import styles from './MovieCast.module.css';
 
-const MovieCast = () => {
-  const { movieId } = useParams();
+const MovieCast = ({ movieId }) => {
   const [cast, setCast] = useState([]);
+  const [baseUrl, setBaseUrl] = useState('');
+  const [profileSize, setProfileSize] = useState('');
 
   useEffect(() => {
-    const fetchCast = async () => {
+    const fetchCastAndConfig = async () => {
+      if (!movieId) {
+        console.error('movieId is not defined');
+        return;
+      }
+
       try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movieId}/credits`,
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_TOKEN}`,
-            },
-          }
-        );
-        setCast(response.data.cast);
+        const castData = await getMovieCast({ movieId });
+        const configData = await getTmdbConfig({});
+
+        if (castData && configData) {
+          setCast(castData.cast);
+          setBaseUrl(configData.images.base_url);
+          setProfileSize(configData.images.profile_sizes[2]); 
+        }
       } catch (error) {
-        console.error('Error fetching cast:', error.response || error.message);
+        console.error('Error fetching cast and configuration:', error);
       }
     };
 
-    fetchCast();
+    fetchCastAndConfig();
   }, [movieId]);
 
   return (
@@ -32,18 +36,20 @@ const MovieCast = () => {
       <h3>Cast</h3>
       <div className={styles.castContainer}>
         {cast.map(actor => (
-          <div key={actor.id} className={styles.castItem}>
-            {actor.profile_path && (
+          <div key={actor.cast_id} className={styles.castItem}>
+            {actor.profile_path ? (
               <img
-                src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+                src={`${baseUrl}${profileSize}${actor.profile_path}`}
                 alt={actor.name}
                 className={styles.castImage}
               />
+            ) : (
+              <div className={styles.noImage}>
+                <span className={styles.noImageText}>?</span>
+              </div>
             )}
-            <div>
-              <p className={styles.castName}>{actor.name}</p>
-              <p className={styles.castCharacter}>Character: {actor.character}</p>
-            </div>
+            <p className={styles.castName}>{actor.name}</p>
+            <p className={styles.castCharacter}>as {actor.character}</p>
           </div>
         ))}
       </div>

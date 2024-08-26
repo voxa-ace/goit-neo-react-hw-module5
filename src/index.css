@@ -1,6 +1,6 @@
 body {
   line-height: 1.5;
-  font-family: 'Roboto', sans-serif; /* Consistent font across the page */
+  font-family: 'Roboto', sans-serif; 
 }
 
 h1,
@@ -23,5 +23,5 @@ ol {
 img {
   display: block;
   max-width: 100%;
-  height: auto; /* Maintain aspect ratio */
+  height: auto; 
 }

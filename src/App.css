@@ -1,7 +1,12 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1rem; /* Додайте відступи по боках */
+  margin-bottom: 30px;
+  padding: 0 1rem; 
+}
+body {
+  background: linear-gradient(to bottom right, #8e7fd9, #9bd57a);
+  min-height: 100vh; 
 }
 
 .header {

@@ -9,26 +9,31 @@ const MoviesPage = () => {
   const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const searchQuery = searchParams.get('query') || '';
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setSearchParams({ query });
+    setLoading(true);
+    setError(null);
     try {
       const data = await searchMovies({ query });
       if (data) {
         setMovies(data.results);
       } else {
-        setError('Failed to search movies');
+        setError('No movies found');
       }
     } catch (error) {
       console.error('Error searching movies:', error);
       setError('Failed to search movies');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -45,8 +50,9 @@ const MoviesPage = () => {
           Search
         </button>
       </form>
+      {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      {movies.length > 0 && <MovieList movies={movies} />}
+      {movies.length > 0 && !loading && <MovieList movies={movies} />}
     </div>
   );
 };

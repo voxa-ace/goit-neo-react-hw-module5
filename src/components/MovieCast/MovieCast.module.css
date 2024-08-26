@@ -14,9 +14,26 @@
 
 .castImage {
   width: 100px;
-  height: 150px; /* Можна налаштувати висоту залежно від потреб */
-  border-radius: 6px; /* Менше закруглення */
+  height: 150px;
+  border-radius: 6px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.noImage {
+  width: 100px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dcdcdc;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.noImageText {
+  font-size: 36px;
+  color: #555;
 }
 
 .castName {

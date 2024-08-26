@@ -30,7 +30,15 @@ const MovieDetailsPage = () => {
   }, [movieId]);
 
   const handleGoBack = () => {
-    navigate('/');
+    // Check if there's a state object with a 'from' property
+    const previousLocation = location.state?.from;
+
+    // If `previousLocation` exists, navigate to it; otherwise, navigate to `/movies`
+    if (previousLocation) {
+      navigate(previousLocation);
+    } else {
+      navigate('/movies');
+    }
   };
 
   return (
@@ -59,10 +67,10 @@ const MovieDetailsPage = () => {
             <h3>Additional Information</h3>
             <ul>
               <li>
-                <Link className={styles.link} to="cast" state={location.state}>Cast</Link>
+                <Link className={styles.link} to="cast" state={{ from: location.pathname }}>Cast</Link>
               </li>
               <li>
-                <Link className={styles.link} to="reviews" state={location.state}>Reviews</Link>
+                <Link className={styles.link} to="reviews" state={{ from: location.pathname }}>Reviews</Link>
               </li>
             </ul>
           </div>
@@ -70,7 +78,7 @@ const MovieDetailsPage = () => {
       )}
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="cast" element={<MovieCast />} />
+          <Route path="cast" element={<MovieCast movieId={movieId} />} />
           <Route path="reviews" element={<MovieReviews />} />
         </Routes>
       </Suspense>

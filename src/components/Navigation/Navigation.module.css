@@ -1,44 +1,38 @@
 .nav {
+  background-color: #f0f0f0; 
+  padding: 8px;
   display: flex;
   gap: 15px;
-  padding: 1rem;
-  background-color: #333;
+  border-bottom: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 10px;
 }
 
 .navLink {
-  color: #1e90ff; /* Синій колір для посилань */
+  color: #333;
   text-decoration: none;
-  font-size: 18px;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
-  border: 1px solid transparent;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
 }
 
 .navLink:hover {
-  background-color: #1e90ff;
-  color: #fff;
-  border: 1px solid #1e90ff;
+  background-color: #e0e0e0;
+  color: #007bff;
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
 }
 
 .activeLink {
-  background-color: #1e90ff;
-  color: #fff;
-  border: 1px solid #1e90ff;
-}
-
-.goBackButton {
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
   border-radius: 4px;
-  background-color: #333; /* Темний фон для кнопки "Go Back" */
+  background-color: #007bff;
   color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  margin-bottom: 20px;
-}
-
-.goBackButton:hover {
-  background-color: #555;
+  font-weight: 700;
 }
