@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getMovieCast, getTmdbConfig } from '../../api/tmdb'; 
 import styles from './MovieCast.module.css';
 
-const MovieCast = ({ movieId }) => {
+const MovieCast = () => {
+  const { movieId } = useParams();
   const [cast, setCast] = useState([]);
   const [baseUrl, setBaseUrl] = useState('');
   const [profileSize, setProfileSize] = useState('');

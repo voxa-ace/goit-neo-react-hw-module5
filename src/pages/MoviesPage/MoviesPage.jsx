@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MovieList from '../../components/MovieList/MovieList';
 import styles from './MoviesPage.module.css'; 
@@ -13,28 +13,33 @@ const MoviesPage = () => {
 
   const searchQuery = searchParams.get('query') || '';
 
+  useEffect(() => {
+    if (searchQuery) {
+      const fetchMovies = async () => {
+        setLoading(true);
+        setError(null);
+        try {
+          const data = await searchMovies({ query: searchQuery });
+          setMovies(data.results);
+        } catch (error) {
+          console.error('Error searching movies:', error);
+          setError('Failed to search movies');
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchMovies();
+    }
+  }, [searchQuery]);
+
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     setSearchParams({ query });
-    setLoading(true);
-    setError(null);
-    try {
-      const data = await searchMovies({ query });
-      if (data) {
-        setMovies(data.results);
-      } else {
-        setError('No movies found');
-      }
-    } catch (error) {
-      console.error('Error searching movies:', error);
-      setError('Failed to search movies');
-    } finally {
-      setLoading(false);
-    }
   };
 
   return (

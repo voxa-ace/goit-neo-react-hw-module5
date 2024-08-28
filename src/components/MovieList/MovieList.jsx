@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styles from './MovieList.module.css'; 
 
 const MovieList = ({ movies }) => {
+  const location = useLocation();
+
   return (
     <div className={styles.movieList}>
       {movies.length === 0 ? (
@@ -11,7 +13,11 @@ const MovieList = ({ movies }) => {
       ) : (
         movies.map(movie => (
           <div key={movie.id} className={styles.movieItem}>
-            <Link to={`/movies/${movie.id}`} className={styles.movieLink}>
+            <Link 
+              to={`/movies/${movie.id}`} 
+              state={{ from: location }} 
+              className={styles.movieLink}
+            >
               {movie.poster_path ? (
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
